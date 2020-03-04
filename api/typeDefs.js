@@ -1,6 +1,10 @@
 import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
+  type AuthPayload {
+    user: User
+  }
+
   type User {
     id: ID
     firstName: String
@@ -14,6 +18,10 @@ const typeDefs = gql`
 
   type Mutation {
     logout: Boolean
+  }
+
+  type Mutation {
+    login(email: String!, password: String!): AuthPayload
   }
 `;
 
